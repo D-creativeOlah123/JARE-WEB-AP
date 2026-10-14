@@ -1,0 +1,53 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 4px 12px;
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  color: var(--color-text);
+  text-decoration: none;
+  min-height: 72px;
+}
+.action:hover { border-color: var(--color-primary-light); }
+
+.iconWrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* Accents — soft bg + bold ink; matches the semantic token pairs. */
+.accent_brand   .iconWrap { background: var(--color-primary-soft); color: var(--color-primary); }
+.accent_success .iconWrap { background: var(--color-success-soft); color: var(--color-success-ink); }
+.accent_danger  .iconWrap { background: var(--color-danger-soft);  color: var(--color-danger-ink); }
+.accent_warn    .iconWrap { background: var(--color-warning-soft); color: var(--color-warning-ink); }
+.accent_info    .iconWrap { background: var(--color-info-soft);    color: var(--color-info-ink); }
+.accent_neutral .iconWrap { background: var(--color-bg-subtle);    color: var(--color-text-muted); }
+.accent_mtn     .iconWrap { background: color-mix(in oklab, #FFCC00 25%, var(--color-bg-subtle)); color: #B48600; }
+.accent_glo     .iconWrap { background: color-mix(in oklab, #52AE33 25%, var(--color-bg-subtle)); color: #296815; }
+
+/* Dark theme softens the MTN/Glo stand-ins */
+:root[data-theme="dark"] .accent_mtn .iconWrap { color: #FFCC66; }
+:root[data-theme="dark"] .accent_glo .iconWrap { color: #8DD56A; }

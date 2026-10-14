@@ -1,0 +1,157 @@
+.wrap {
+  position: relative;
+  padding: 20px;
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+.medallion {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: white;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+.title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.statusPill { justify-self: end; }
+
+.amountBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 0 10px;
+  text-align: center;
+  gap: 2px;
+}
+.amountLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.amount {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  font-size: 32px;
+  font-variant-numeric: tabular-nums;
+}
+.credit { color: var(--color-success); }
+.debit  { color: var(--color-text); }
+
+.rows {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 16px;
+}
+@media (max-width: 420px) {
+  .rows { grid-template-columns: 1fr; }
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.dt {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.dd {
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.mono { font-family: ui-monospace, Consolas, monospace; letter-spacing: 0.02em; }
+.big  { font-size: 18px; letter-spacing: 0.08em; }
+
+.divider {
+  height: 1px;
+  background-image: repeating-linear-gradient(90deg,
+    var(--color-border) 0 6px,
+    transparent 6px 12px);
+}
+
+.foot {
+  color: var(--color-text-muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+/* Action row — hidden on print */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 6px;
+}
+.reportLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* -------- Print-only --------
+   `window.print()` is called with body.jara-print-receipt applied; the
+   global rules below (also in global.css fallback) hide everything else
+   and expand the receipt onto the page. */
+@media print {
+  :global(body.jara-print-receipt *) { visibility: hidden !important; }
+  :global(body.jara-print-receipt) :global(.printable),
+  :global(body.jara-print-receipt) :global(.printable) * {
+    visibility: visible !important;
+  }
+  :global(body.jara-print-receipt) :global(.printable) {
+    position: fixed !important;
+    top: 0; left: 0; right: 0;
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    box-shadow: none;
+    background: white !important;
+    color: black !important;
+  }
+  .actions { display: none !important; }
+  .credit, .debit, .amount, .dd, .dt, .foot, .title { color: black !important; }
+  .divider { background-image: repeating-linear-gradient(90deg, #999 0 6px, transparent 6px 12px) !important; }
+}

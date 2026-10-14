@@ -1,0 +1,74 @@
+.wrap {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  counter-reset: steps;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 10px 10px 8px;
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  overflow: hidden;
+}
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dot {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  border: 1px solid var(--color-border);
+}
+
+/* Current step: plum accent + glow */
+.on {
+  background: color-mix(in oklab, var(--color-primary) 10%, var(--color-bg-elev));
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary) 18%, transparent);
+}
+.on .dot {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* Done step: filled with success tint, tick inside the dot */
+.done {
+  background: var(--color-success-soft);
+  border-color: color-mix(in oklab, var(--color-success) 30%, var(--color-border));
+  color: var(--color-success-ink);
+}
+.done .dot {
+  background: var(--color-success);
+  color: white;
+  border-color: var(--color-success);
+}
+
+@media (max-width: 540px) {
+  /* Shrink the labels — only the active label stays readable, others fade. */
+  .label { display: none; }
+  .on .label { display: inline; }
+}

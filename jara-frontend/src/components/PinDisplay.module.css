@@ -1,0 +1,25 @@
+.wrap {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+}
+
+.box {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  background: var(--color-bg-elev);
+  display: grid;
+  place-items: center;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.boxFilled { border-color: var(--color-primary); }
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}

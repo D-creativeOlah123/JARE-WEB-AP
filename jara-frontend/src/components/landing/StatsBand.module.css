@@ -1,0 +1,41 @@
+.grid {
+  list-style: none;
+  padding: 0;
+  margin: clamp(24px, 4vw, 48px) 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 3vw, 32px);
+  text-align: center;
+}
+@media (max-width: 820px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: jara-fade-slide var(--duration-slow) var(--ease-out) both;
+  animation-delay: var(--stat-stagger);
+}
+@media (prefers-reduced-motion: reduce) {
+  .item { animation: none; opacity: 1; transform: none; }
+}
+
+.value {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--color-primary-light);
+  font-size: clamp(32px, 4vw, 48px);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.label {
+  color: color-mix(in oklab, var(--color-text-invert) 70%, transparent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}

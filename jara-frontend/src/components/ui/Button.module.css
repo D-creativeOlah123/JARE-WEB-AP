@@ -1,0 +1,59 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-weight: 700;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+.btn:disabled, .btn[aria-busy="true"] { opacity: 0.6; cursor: not-allowed; }
+.full { width: 100%; }
+
+.label { line-height: 1; }
+
+/* Sizes */
+.s_sm { padding: 6px 14px; min-height: 32px; font-size: 12px; }
+.s_md { padding: 10px 18px; min-height: 44px; font-size: 14px; }
+.s_lg { padding: 14px 22px; min-height: 52px; font-size: 15px; }
+
+/* Variants */
+.v_primary {
+  background: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 8px 20px -10px rgba(155, 90, 145, 0.7);
+}
+.v_primary:hover:not(:disabled) { background: var(--color-primary-dark); }
+
+.v_secondary {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+.v_secondary:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--color-primary) 20%, var(--color-primary-soft));
+}
+
+.v_ghost {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+.v_ghost:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--color-primary) 8%, transparent);
+  border-color: var(--color-primary-light);
+}
+
+.v_danger {
+  background: var(--color-danger);
+  color: #ffffff;
+}
+.v_danger:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--color-danger) 90%, black);
+}
+
+/* Spinner-only when loading — hide iconLeft but keep layout stable. */
+.loading .label { opacity: 0.9; }

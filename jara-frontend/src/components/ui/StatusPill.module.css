@@ -1,0 +1,15 @@
+.pill {
+  display: inline-flex;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.v_neutral { background: var(--color-bg-subtle);   color: var(--color-text-muted); }
+.v_success { background: var(--color-success-soft); color: var(--color-success-ink); }
+.v_danger  { background: var(--color-danger-soft);  color: var(--color-danger-ink); }
+.v_warning { background: var(--color-warning-soft); color: var(--color-warning-ink); }
+.v_info    { background: var(--color-info-soft);    color: var(--color-info-ink); }

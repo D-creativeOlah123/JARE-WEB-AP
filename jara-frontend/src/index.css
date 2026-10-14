@@ -1,0 +1,7 @@
+/* Global stylesheet entry — imported once from main.jsx.
+   Order matters: reset clears defaults, tokens defines variables,
+   global uses them for body/typography. */
+
+@import './styles/reset.css';
+@import './styles/tokens.css';
+@import './styles/global.css';

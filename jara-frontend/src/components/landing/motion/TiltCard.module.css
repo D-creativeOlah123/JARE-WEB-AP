@@ -1,0 +1,58 @@
+.wrap {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --gloss-x: 50%;
+  --gloss-y: 50%;
+
+  display: inline-block;
+  perspective: 900px;
+  outline: none;
+  cursor: default;
+}
+.wrap:focus-visible .surface {
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--color-primary) 65%, transparent),
+    0 24px 48px -18px rgba(26, 11, 46, 0.55);
+}
+
+.surface {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transition: transform 500ms var(--ease-spring);
+  will-change: transform;
+}
+.on .surface {
+  transition: none;   /* follow pointer live */
+}
+
+/* Gloss — a radial highlight that follows the pointer. */
+.gloss {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    360px circle at var(--gloss-x) var(--gloss-y),
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(255, 255, 255, 0.08) 25%,
+    rgba(255, 255, 255, 0)    55%
+  );
+  opacity: 0;
+  transition: opacity 350ms var(--ease-out);
+  mix-blend-mode: screen;
+}
+.on .gloss { opacity: 1; }
+
+/* Reduced-motion fallback */
+.reduced .surface {
+  transform: none;
+  transition: none;
+}
+.reduced .gloss { display: none; }
+
+/* Touch devices: tilt feels bad; disable. */
+@media (hover: none) {
+  .surface { transform: none !important; transition: none !important; }
+  .gloss   { display: none; }
+}

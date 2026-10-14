@@ -1,0 +1,106 @@
+.band {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  text-align: center;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.bgImg {
+  width: 100%;
+  height: 100%;
+  filter: blur(18px) saturate(1.1);
+  transform: scale(1.08);
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(900px 500px at 50% 50%,
+      transparent 20%,
+      color-mix(in oklab, var(--color-bg-dark) 72%, transparent) 70%),
+    rgba(26, 11, 46, 0.6);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  color: var(--color-text-invert);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.sub {
+  color: color-mix(in oklab, var(--color-text-invert) 82%, transparent);
+  font-size: clamp(14px, 1.4vw, 17px);
+  max-width: 56ch;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.ctas {
+  display: inline-flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.primary {
+  padding: 14px 24px;
+  min-height: 48px;
+  border-radius: 999px;
+  background: white;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 14px 28px -14px rgba(255, 255, 255, 0.5);
+}
+.secondary {
+  padding: 14px 24px;
+  min-height: 48px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-text-invert);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.secondary:hover { background: rgba(255, 255, 255, 0.08); }
+
+/* Trust row */
+.trust {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  display: inline-flex;
+  gap: clamp(10px, 2vw, 24px);
+  flex-wrap: wrap;
+  justify-content: center;
+  color: color-mix(in oklab, var(--color-text-invert) 70%, transparent);
+  font-size: 12px;
+  font-weight: 600;
+}
+.trustItem {
+  display: inline-flex;
+  gap: 10px;
+}
+.trustItem::before {
+  content: '•';
+  color: var(--color-primary-light);
+}
+.trustItem:first-child::before { content: ''; }

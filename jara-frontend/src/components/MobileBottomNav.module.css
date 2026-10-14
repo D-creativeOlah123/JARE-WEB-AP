@@ -1,0 +1,43 @@
+.bottomNav {
+  position: absolute;
+  left: var(--space-4);
+  right: var(--space-4);
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  padding: 6px;
+  background: var(--color-primary);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 12px 32px -8px rgba(155, 90, 145, 0.45);
+  z-index: 20;
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 6px;
+  border-radius: var(--radius-pill);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+.tab:hover { background: rgba(255, 255, 255, 0.08); }
+
+.tabActive {
+  background: var(--color-bg-elev);
+  color: var(--color-primary);
+}
+.tabActive:hover { background: var(--color-bg-elev); }
+
+.tabLabel {
+  font-size: 12px;
+  font-weight: 600;
+  display: none;   /* label only shown on active tab */
+}
+.tabActive .tabLabel { display: inline; }

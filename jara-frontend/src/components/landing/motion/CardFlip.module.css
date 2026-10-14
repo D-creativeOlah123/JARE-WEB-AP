@@ -1,0 +1,74 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1.586 / 1;
+  perspective: 1200px;
+}
+
+.flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 600ms var(--ease-out);
+  will-change: transform;
+  cursor: pointer;
+  outline: none;
+  border-radius: 20px;
+}
+.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Each face hides its back so we can swap cleanly in 3D. */
+.face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+}
+.back  { transform: rotateY(180deg); }
+
+/* Keyboard focus ring on the whole flipper */
+.flipper:focus-visible {
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--color-primary) 65%, transparent),
+    0 24px 48px -18px rgba(26, 11, 46, 0.55);
+}
+
+/* Reduced motion — opacity crossfade instead of 3D flip */
+.reduced {
+  transform-style: flat;
+  transition: none;
+}
+.reduced .face { backface-visibility: visible; -webkit-backface-visibility: visible; }
+.reduced.flipped { transform: none; }
+.reduced .front { transition: opacity 150ms var(--ease-out); }
+.reduced .back  { transition: opacity 150ms var(--ease-out); opacity: 0; }
+.reduced.flipped .front { opacity: 0; }
+.reduced.flipped .back  { opacity: 1; }
+
+/* Flip button (discoverable toggle) */
+.flipBtn {
+  position: absolute;
+  bottom: -14px;
+  right: 10%;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--landing-glass-bg);
+  color: var(--color-text);
+  border: 1px solid var(--landing-glass-border);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-md);
+  z-index: 2;
+}

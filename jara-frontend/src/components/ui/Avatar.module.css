@@ -1,0 +1,16 @@
+.avatar {
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+  flex-shrink: 0;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+.s_sm { width: 28px; height: 28px; font-size: 11px; }
+.s_md { width: 40px; height: 40px; font-size: 13px; }
+.s_lg { width: 56px; height: 56px; font-size: 18px; }
+.s_xl { width: 88px; height: 88px; font-size: 28px; }

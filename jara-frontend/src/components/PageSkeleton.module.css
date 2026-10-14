@@ -1,0 +1,15 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 16px;
+  color: var(--color-text);
+}
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.customer { max-width: 440px; margin: 0 auto; }
+.admin    { max-width: 1180px; margin: 0 auto; }
+.auth     { max-width: 440px; margin: 48px auto; }

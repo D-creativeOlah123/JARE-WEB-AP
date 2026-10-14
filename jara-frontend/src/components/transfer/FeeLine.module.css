@@ -1,0 +1,32 @@
+.wrap {
+  margin: 0;
+  padding: 10px 12px;
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  display: grid;
+  gap: 4px;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-text);
+}
+.dt {
+  color: var(--color-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.dd {
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.muted  .dd { color: var(--color-text-muted); }
+.danger .dd { color: var(--color-danger); }

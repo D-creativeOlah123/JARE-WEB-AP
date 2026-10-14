@@ -1,0 +1,142 @@
+.page { display: flex; flex-direction: column; gap: 24px; max-width: 720px; }
+
+.hero { display: flex; flex-direction: column; gap: 4px; }
+.title { font-size: 24px; font-weight: 700; color: white; }
+.subtitle { color: rgba(255, 255, 255, 0.55); font-size: 13px; }
+
+/* Identity */
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  background: rgba(36, 26, 48, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+}
+.avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #EC4899, #A855F7);
+  color: white;
+  font-weight: 700;
+  font-size: 26px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.identityText { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.name {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.adminBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  background: rgba(236, 72, 153, 0.18);
+  color: #F9A8D4;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.metaRow {
+  display: flex;
+  gap: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+.metaRow span { display: inline-flex; align-items: center; gap: 4px; }
+.joined {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Facts */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 900px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .facts { grid-template-columns: 1fr; } }
+
+.fact {
+  padding: 14px;
+  background: rgba(36, 26, 48, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.factIcon {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: rgba(168, 85, 247, 0.15);
+  color: #DDD6FE;
+  display: grid;
+  place-items: center;
+  margin-bottom: 4px;
+}
+.factLabel { color: rgba(255, 255, 255, 0.5); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+.factValue { color: white; font-size: 14px; font-weight: 700; text-transform: capitalize; }
+.factOk   { color: #86EFAC; }
+.factWarn { color: #FCD34D; }
+
+/* Actions */
+.actions {
+  padding: 20px 24px;
+  background: rgba(36, 26, 48, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sectionTitle {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.ghostBtn {
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: white;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+.ghostBtn:hover { background: rgba(255, 255, 255, 0.08); }
+
+.dangerBtn {
+  padding: 12px 16px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #FCA5A5;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+.dangerBtn:hover { background: rgba(239, 68, 68, 0.2); }

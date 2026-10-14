@@ -1,0 +1,48 @@
+# ------- Dependencies -------
+node_modules/
+
+# ------- Build output -------
+dist/
+build/
+.vite/
+
+# ------- Env files (NEVER commit) -------
+.env
+.env.local
+.env.*.local
+# Keep *.example files tracked so new devs have a template:
+!*.env.example
+!.env.example
+
+# ------- Logs -------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ------- Caches -------
+.cache/
+.parcel-cache/
+.eslintcache
+*.tsbuildinfo
+
+# ------- Platform artifacts -------
+.vercel
+.netlify
+.render
+
+# ------- Editor / OS -------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# ------- Coverage / test -------
+coverage/
+.nyc_output/
+
+# ------- Local uploads (user avatars live inline on the User doc,
+# but keep this just in case we ever write files to disk) ----------
+uploads/

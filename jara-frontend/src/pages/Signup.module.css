@@ -1,0 +1,319 @@
+.head { display: flex; flex-direction: column; gap: 4px; }
+.title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  font-size: 26px;
+  color: var(--color-text);
+  margin: 0;
+  overflow-wrap: break-word;
+}
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- Grouped fields --- */
+.group {
+  padding: 0;
+  margin: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.groupHead {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+.groupBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.showPwBtn {
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.agree {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.agree input { accent-color: var(--color-primary); margin-top: 2px; }
+.agree a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 700;
+}
+.agree a:hover { text-decoration: underline; }
+
+/* --- Centered steps (PIN / channel / verify / done) --- */
+.centerStep {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+}
+.centerStep .head { align-items: center; text-align: center; }
+
+.pinArea { margin: 8px 0; }
+
+/* PIN mismatch shake */
+.shake { animation: jara-shake 320ms var(--ease-out) both; }
+@keyframes jara-shake {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-6px); }
+  40%      { transform: translateX(6px); }
+  60%      { transform: translateX(-4px); }
+  80%      { transform: translateX(4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shake { animation: none; }
+}
+
+/* --- KYC tier card --- */
+.kyc {
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.kycRow {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  align-items: center;
+}
+.kycRowActive {
+  background: var(--color-success-soft);
+}
+.kycMark {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--color-success);
+  color: white;
+  display: grid; place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+.kycMarkDisabled {
+  background: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+}
+.kycText { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.kycTitle { color: var(--color-text); font-size: 13px; font-weight: 700; }
+.kycSub   { color: var(--color-text-muted); font-size: 11px; }
+.kycRow[aria-disabled="true"] .kycTitle,
+.kycRow[aria-disabled="true"] .kycSub { color: var(--color-text-muted); }
+
+/* --- Channel chooser --- */
+.channels {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+}
+.channelCard {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  background: var(--color-bg-elev);
+  border: 1.5px solid var(--color-border);
+  border-radius: 14px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+.channelCard:hover { border-color: var(--color-primary-light); }
+.channelActive {
+  border-color: var(--color-primary);
+  background: color-mix(in oklab, var(--color-primary) 8%, var(--color-bg-elev));
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary) 18%, transparent);
+}
+.channelIcon {
+  width: 32px; height: 32px;
+  border-radius: 10px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  display: grid; place-items: center;
+}
+.channelActive .channelIcon {
+  background: var(--color-primary);
+  color: white;
+}
+.channelText { display: flex; flex-direction: column; min-width: 0; }
+.channelLabel { color: var(--color-text); font-size: 13px; font-weight: 700; }
+.channelValue { color: var(--color-text-muted); font-size: 11px; font-variant-numeric: tabular-nums; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.channelCheck {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  display: grid;
+  place-items: center;
+  color: white;
+}
+.channelActive .channelCheck {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* --- Verify / Resend --- */
+.devHint {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 11px;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin: 0;
+}
+.resend {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+.resend:disabled { color: var(--color-text-muted); cursor: not-allowed; }
+
+/* --- Success medallion --- */
+.success, .created {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  text-align: center;
+}
+.successMedallion {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--color-success);
+  color: white;
+  display: grid;
+  place-items: center;
+  animation: jara-scale-in 320ms var(--ease-spring) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .successMedallion { animation: none; }
+}
+
+/* --- Account-created block --- */
+.acctCard {
+  width: 100%;
+  padding: 16px;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+.acctLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+.acctValue {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: white;
+  font-variant-numeric: tabular-nums;
+}
+.acctHolder {
+  font-size: 12px;
+  opacity: 0.9;
+}
+.acctActions {
+  display: inline-flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+/* Make the ghost + secondary buttons readable on the plum gradient. */
+.acctActions :global(button) {
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.acctActions :global(button:hover) {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Card thumbnail row */
+.cardPreviewRow {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  text-align: left;
+}
+.cardThumb {
+  width: 56px;
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.cardThumbImg { width: 100%; height: 100%; }
+.cardThumbText {
+  color: var(--color-text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.footer {
+  color: var(--color-text-muted);
+  font-size: 12px;
+  text-align: center;
+  margin: 10px 0 0;
+}
+.footerLink {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+.footerLink:hover { text-decoration: underline; }

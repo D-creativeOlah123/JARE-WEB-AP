@@ -1,0 +1,77 @@
+.grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+@media (max-width: 960px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* -------- Photo column -------- */
+.photoCol {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: var(--shadow-lg);
+}
+.photo { width: 100%; height: 100%; }
+.photoScrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    220deg,
+    transparent 30%,
+    color-mix(in oklab, var(--color-primary) 40%, transparent) 100%
+  );
+  pointer-events: none;
+}
+
+/* -------- Text column -------- */
+.textCol { display: flex; flex-direction: column; gap: 20px; }
+
+.cardStage {
+  padding: clamp(16px, 3vw, 28px) 0 clamp(24px, 3vw, 36px);
+  display: flex;
+  justify-content: center;
+}
+
+/* Bullets */
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 20px;
+  max-width: 540px;
+}
+@media (max-width: 540px) {
+  .bullets { grid-template-columns: 1fr; }
+}
+.bullet {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: color-mix(in oklab, var(--color-text-invert) 90%, transparent);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.tick {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--color-primary) 32%, var(--color-bg-dark));
+  color: var(--color-primary-light);
+  display: grid; place-items: center;
+  margin-top: 2px;
+}
+
+.network {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--color-text-invert) 65%, transparent);
+}

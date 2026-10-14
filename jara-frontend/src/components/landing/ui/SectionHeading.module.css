@@ -1,0 +1,48 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 60ch;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+:where(.dark) .eyebrow { color: var(--color-primary-light); }
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: inherit;
+  font-size: clamp(28px, 4vw, 44px);
+  overflow-wrap: break-word;
+}
+
+.italic {
+  font-style: italic;
+  background: linear-gradient(
+    120deg,
+    var(--color-primary) 0%,
+    var(--color-primary-light) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sub {
+  color: var(--color-text-muted);
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.55;
+}

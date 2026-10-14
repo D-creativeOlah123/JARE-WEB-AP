@@ -1,0 +1,59 @@
+.row {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  color: var(--color-text);
+  text-decoration: none;
+  text-align: left;
+  cursor: default;
+  font-family: inherit;
+}
+a.row, button.row { cursor: pointer; }
+a.row:hover, button.row:hover { border-color: var(--color-primary-light); }
+button.row { background: var(--color-bg-elev); }
+button.row:focus-visible, a.row:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.leading { display: inline-flex; align-items: center; justify-content: center; }
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.title {
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.amount, .trailing {
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.credit { color: var(--color-success); }
+.debit  { color: var(--color-danger); }
+.trailing { color: var(--color-text); }
+
+.chev { color: var(--color-text-muted); flex-shrink: 0; }

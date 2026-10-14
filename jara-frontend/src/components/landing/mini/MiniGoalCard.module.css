@@ -1,0 +1,79 @@
+.card {
+  --progress: 0%;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--color-text);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+.icon {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  display: grid; place-items: center;
+}
+.titleCol { display: flex; flex-direction: column; min-width: 0; }
+.title { font-size: 13px; font-weight: 700; color: var(--color-text); }
+.sub   { font-size: 11px; color: var(--color-text-muted); }
+
+.pct {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  font-size: 16px;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Track + fill. Width is driven by --progress and transitions over time. */
+.track {
+  position: relative;
+  height: 8px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--color-primary) 10%, var(--color-bg-subtle));
+  overflow: hidden;
+}
+.fill {
+  position: absolute;
+  inset: 0;
+  width: var(--progress);
+  background: var(--gradient-primary);
+  border-radius: 999px;
+  transition: width 1200ms var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill { transition: none; }
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 2px;
+}
+.footLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.footValue {
+  color: var(--color-text);
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}

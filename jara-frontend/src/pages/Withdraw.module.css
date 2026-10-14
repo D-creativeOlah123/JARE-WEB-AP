@@ -1,0 +1,159 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--color-text);
+}
+.form { display: flex; flex-direction: column; gap: 12px; }
+
+.wallet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hint { color: var(--color-text-muted); font-size: 12px; text-align: center; }
+
+/* Beneficiary list */
+.benefList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.benefRow {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--color-bg-elev);
+  border: 1.5px solid var(--color-border);
+  border-radius: 14px;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+}
+.benefRow:hover { border-color: var(--color-primary-light); }
+.benefRowOn {
+  border-color: var(--color-primary);
+  background: color-mix(in oklab, var(--color-primary) 8%, var(--color-bg-elev));
+}
+.benefText { display: flex; flex-direction: column; min-width: 0; }
+.benefName {
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.benefMeta {
+  color: var(--color-text-muted);
+  font-size: 11px;
+}
+
+.radio {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border-strong);
+}
+.radioOn {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: inset 0 0 0 3px var(--color-bg-elev);
+}
+
+.newLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 12px;
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--color-primary-soft);
+  border-radius: 12px;
+  text-decoration: none;
+  justify-content: center;
+}
+
+/* Empty-state banner */
+.empty {
+  padding: 20px 8px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.emptyCta {
+  padding: 8px 14px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* PIN + success — mirrors TransferBank */
+.pinStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+}
+.pinTitle {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  font-size: 20px;
+  margin: 0;
+  text-align: center;
+}
+.pinHint { color: var(--color-text-muted); font-size: 12px; }
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 8px;
+  text-align: center;
+}
+.successBody {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1.55;
+  max-width: 44ch;
+  margin: 0;
+}
+.successCtas {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+.medallion {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--color-success);
+  color: white;
+  display: grid;
+  place-items: center;
+  animation: jara-scale-in 300ms var(--ease-spring) both;
+}
+@media (prefers-reduced-motion: reduce) { .medallion { animation: none; } }

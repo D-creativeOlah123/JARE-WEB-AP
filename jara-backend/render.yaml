@@ -1,0 +1,73 @@
+# ---------------------------------------------------------------------
+# render.yaml — Infrastructure-as-Code for the Jara API on Render.com
+#
+# To deploy:
+#   1. Push this repo to GitHub.
+#   2. On Render, click New → Blueprint, pick the Jara repo.
+#   3. Fill every env var marked `sync: false` in the dashboard — these
+#      are secrets Render deliberately won't read from version control.
+#   4. First deploy builds + boots the service at
+#      https://jara-api-<id>.onrender.com
+#
+# Free plan sleeps after 15 minutes of inactivity; the healthCheckPath
+# below means Render keeps the dyno warm for the first request.
+# ---------------------------------------------------------------------
+
+services:
+  - type: web
+    name: jara-api
+    runtime: node
+    plan: free
+    region: oregon        # switch to the region closest to your users
+
+    rootDir: jara-backend
+    buildCommand: npm ci
+    startCommand: node src/server.js
+    healthCheckPath: /api/health
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000      # Render maps this to :443 externally
+
+      # ---- Database (MongoDB Atlas) ----
+      - key: MONGODB_URI
+        sync: false
+
+      # ---- CORS: the Vercel URL + any custom domain, comma-separated ----
+      - key: CORS_ORIGIN
+        sync: false
+
+      # ---- JWT ----
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_REFRESH_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 15m
+      - key: JWT_REFRESH_EXPIRES_IN
+        value: 7d
+
+      # ---- Mail (Gmail SMTP). Leave SMTP_USER/SMTP_PASS blank to force
+      #      dev-mode fallback (OTPs returned in the API response). ----
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: 465
+      - key: SMTP_FROM
+        value: Jara <no-reply@jara.app>
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+
+      # ---- Payments: leave blank to run in stub mode ----
+      - key: PAYSTACK_SECRET_KEY
+        sync: false
+      - key: VTPASS_API_KEY
+        sync: false
+      - key: VTPASS_SECRET_KEY
+        sync: false
+      - key: VTPASS_BASE_URL
+        value: https://sandbox.vtpass.com/api

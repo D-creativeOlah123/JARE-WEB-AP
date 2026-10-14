@@ -1,0 +1,70 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  color: var(--color-text);
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+}
+
+.field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 0 16px;
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  gap: 8px;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+.field:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary) 20%, transparent);
+}
+
+.prefix {
+  color: var(--color-text-muted);
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.input::placeholder {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+.input:disabled { opacity: 0.6; }
+
+.helper { color: var(--color-text-muted); font-size: 11px; margin: 0; }
+.error  { color: var(--color-danger);     font-size: 11px; margin: 0; font-weight: 600; }
+
+.wrapError .field {
+  border-color: var(--color-danger);
+  background: color-mix(in oklab, var(--color-danger) 6%, var(--color-bg-elev));
+}
+.wrapError .field:focus-within {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-danger) 25%, transparent);
+}

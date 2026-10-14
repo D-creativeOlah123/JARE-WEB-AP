@@ -1,0 +1,104 @@
+.grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+@media (max-width: 960px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Left: photo ---- */
+.photoCol {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: var(--shadow-lg);
+}
+.photo { width: 100%; height: 100%; }
+.photoScrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    color-mix(in oklab, var(--color-bg-dark) 55%, transparent) 100%
+  );
+  pointer-events: none;
+}
+
+/* ---- Right: provider grid ---- */
+.textCol { display: flex; flex-direction: column; gap: 24px; }
+
+.providerGrid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+@media (max-width: 540px) {
+  .providerGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.tile {
+  position: relative;
+  padding: 12px 12px 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-text-invert);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+  isolation: isolate;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: jara-fade-slide var(--duration-slow) var(--ease-out) both;
+  animation-delay: var(--tile-stagger, 0ms);
+  transition: transform 300ms var(--ease-out),
+              background 300ms var(--ease-out);
+}
+.tile:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tile { animation: none; opacity: 1; transform: none; }
+  .tile:hover { transform: none; }
+}
+
+/* Colour accent bar (left edge) */
+.tileSwatch {
+  position: absolute;
+  top: 12px; bottom: 12px;
+  left: 0;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: var(--provider-colour);
+  box-shadow: 0 0 10px color-mix(in oklab, var(--provider-colour) 60%, transparent);
+}
+
+.tileName {
+  color: var(--color-text-invert);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  padding-left: 10px;
+}
+.tileRecent {
+  color: color-mix(in oklab, var(--color-text-invert) 55%, transparent);
+  font-size: 11px;
+  font-weight: 500;
+  padding-left: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.footnote {
+  color: color-mix(in oklab, var(--color-text-invert) 68%, transparent);
+  font-size: 13px;
+  line-height: 1.55;
+}

@@ -1,0 +1,43 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero { display: flex; flex-direction: column; gap: 4px; }
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+}
+.subtitle {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+}
+
+/* --- Row 1: KPI grid (4 across desktop, 2 tablet, 1 phone) --- */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media (max-width: 1279px) { .kpiGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 639px)  { .kpiGrid { grid-template-columns: 1fr; } }
+
+/* --- Row 2: three panels — 30% / 35% / 35% desktop, stacked below --- */
+.threeCol {
+  display: grid;
+  grid-template-columns: 30fr 35fr 35fr;
+  gap: 16px;
+}
+@media (max-width: 1279px) { .threeCol { grid-template-columns: 1fr; } }
+
+.status, .error {
+  padding: 32px;
+  border-radius: 16px;
+  background: rgba(36, 26, 48, 0.6);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  text-align: center;
+}
+.error { color: #EF4444; }

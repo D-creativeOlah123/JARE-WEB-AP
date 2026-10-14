@@ -1,0 +1,95 @@
+.card {
+  position: relative;
+  aspect-ratio: 1.586 / 1;
+  width: 100%;
+  max-width: 320px;
+  border-radius: 20px;
+  background:
+    linear-gradient(160deg, #3a2250 0%, #1a0b2e 100%);
+  box-shadow:
+    0 24px 48px -16px rgba(26, 11, 46, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  padding: 22px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--color-text-invert);
+  overflow: hidden;
+}
+
+/* Magnetic strip — full width, dark band */
+.magStripe {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: linear-gradient(180deg, #0b0514 0%, #150926 100%);
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Signature + CVV row */
+.sigRow {
+  position: relative;
+  margin-top: 86px;  /* skip past magstripe */
+  display: grid;
+  grid-template-columns: 1fr 56px;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.signature {
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0 10px,
+    rgba(240, 234, 246, 0.9) 10px 20px
+  );
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  min-height: 28px;
+}
+.signature svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.cvv {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1a0b2e;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 4px;
+  min-height: 28px;
+}
+.cvvLabel {
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.cvvValue {
+  font-family: ui-monospace, Consolas, monospace;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #1a0b2e;
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 6px;
+}
+.disclaimer {
+  display: block;
+  color: color-mix(in oklab, var(--color-text-invert) 55%, transparent);
+  font-size: 8px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}

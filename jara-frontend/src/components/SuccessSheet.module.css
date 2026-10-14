@@ -1,0 +1,62 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+}
+
+/* Magenta rosette / medallion — pure CSS (no SVG needed).
+   A radial gradient centre plus a soft ring created with a large box-shadow. */
+.medallion {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #E37EC5, #7B2C6A 70%);
+  box-shadow:
+    0 0 0 6px rgba(166, 58, 143, 0.15),
+    0 12px 24px rgba(123, 44, 106, 0.35);
+  position: relative;
+}
+/* Inner sparkle */
+.medallion::after {
+  content: '';
+  position: absolute;
+  inset: 22%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.35), transparent 60%);
+}
+
+.stars {
+  display: flex;
+  gap: 6px;
+  color: var(--color-primary);
+}
+
+.title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  max-width: 280px;
+}
+
+.cta {
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-8);
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  min-width: 200px;
+}
+.cta:hover:not(:disabled) { background: var(--color-primary-dark); }
+.cta:disabled {
+  background: var(--color-primary-light);
+  cursor: not-allowed;
+}

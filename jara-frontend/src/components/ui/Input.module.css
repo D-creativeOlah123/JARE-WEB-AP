@@ -1,0 +1,65 @@
+.wrap {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--color-text);
+}
+.full { width: 100%; display: flex; }
+
+.label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+}
+
+.field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+.field:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary) 20%, transparent);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 14px;
+}
+.input::placeholder { color: var(--color-text-muted); }
+
+.iconLeft, .iconRight {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+.iconLeft  { margin-left: 12px; }
+.iconRight { margin-right: 12px; }
+.iconLeft + .input { padding-left: 8px; }
+.input + .iconRight { padding-right: 0; }
+
+.helper { color: var(--color-text-muted); font-size: 11px; margin: 0; }
+.error  { color: var(--color-danger);     font-size: 11px; margin: 0; font-weight: 600; }
+
+/* Error state */
+.wrapError .field {
+  border-color: var(--color-danger);
+  background: color-mix(in oklab, var(--color-danger) 6%, var(--color-bg-elev));
+}
+.wrapError .field:focus-within {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-danger) 25%, transparent);
+}

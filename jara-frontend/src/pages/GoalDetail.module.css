@@ -1,0 +1,144 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 480px;
+  margin: 0 auto;
+  color: var(--color-text);
+}
+
+.status, .errorBanner {
+  padding: var(--space-6);
+  background: var(--color-bg-elev);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+.errorBanner { color: var(--color-danger); }
+
+.progressCard {
+  padding: var(--space-4);
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+.progressText { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.goalName { color: var(--color-text); font-size: var(--text-base); font-weight: 700; }
+.progressSub { color: var(--color-text-muted); font-size: var(--text-xs); }
+.doneBadge {
+  align-self: flex-start;
+  padding: 2px 8px;
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--color-success);
+  border-radius: 999px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Payment method row */
+.methodRow { display: flex; gap: var(--space-2); }
+.methodTab {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  background: var(--color-bg-elev);
+}
+.methodTab:hover:not(:disabled) { color: var(--color-primary); border-color: var(--color-primary-light); }
+.methodActive {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+.methodActive:hover { color: white; }
+.methodTab:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Form */
+.form { display: flex; flex-direction: column; gap: var(--space-3); }
+.label { color: var(--color-text); font-size: var(--text-sm); font-weight: 500; }
+.amountRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0 var(--space-4);
+}
+.amountRow:focus-within { border-color: var(--color-primary); }
+.n { color: var(--color-text-muted); font-weight: 600; font-size: var(--text-sm); }
+.amountRow input {
+  flex: 1;
+  padding: var(--space-3) 0;
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+}
+.amountRow input:focus { outline: none; }
+
+.error {
+  padding: var(--space-3);
+  background: #FDECEC;
+  color: var(--color-danger);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-md);
+}
+
+.submit {
+  padding: var(--space-4);
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+.submit:hover:not(:disabled) { background: var(--color-primary-dark); }
+.submit:disabled { background: var(--color-primary-light); cursor: not-allowed; opacity: 0.6; }
+
+/* PIN */
+.pinScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  padding-top: var(--space-2);
+}
+.pinTitle { color: var(--color-text); font-size: var(--text-base); font-weight: 700; }
+.hint { color: var(--color-text-muted); font-size: var(--text-xs); }
+
+/* History */
+.historyCard {
+  padding: var(--space-4);
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.historyTitle { color: var(--color-text); font-size: var(--text-sm); font-weight: 600; }
+.emptyHint { color: var(--color-text-muted); font-size: var(--text-xs); }
+
+.historyList { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+.historyRow {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+.historyRow:last-child { border-bottom: none; padding-bottom: 0; }
+.hSource { color: var(--color-text); font-weight: 500; font-size: var(--text-sm); }
+.hRef { color: var(--color-text-muted); font-size: 11px; font-family: ui-monospace, Consolas, monospace; margin-top: 2px; }
+.hAmount { color: var(--color-success); font-weight: 600; font-size: var(--text-sm); }

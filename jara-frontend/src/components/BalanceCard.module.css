@@ -1,0 +1,48 @@
+.card {
+  padding: var(--space-5) var(--space-6);
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  box-shadow: 0 12px 28px -12px rgba(166, 58, 143, 0.6);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  font-size: var(--text-sm);
+  opacity: 0.85;
+}
+
+.toggle {
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+}
+.toggle:hover { background: rgba(255, 255, 255, 0.25); }
+
+.amount {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.number {
+  font-size: var(--text-xs);
+  opacity: 0.85;
+}
+.number strong {
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-left: 4px;
+}

@@ -1,0 +1,33 @@
+.band {
+  width: 100%;
+  padding: clamp(48px, 7vw, 96px) 0;
+  position: relative;
+  color: var(--color-text);
+}
+
+.inner {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 32px);
+}
+
+/* ---- Light tone ---- */
+.light {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+:root[data-theme="dark"] .light {
+  background: var(--color-bg-elev);
+}
+
+/* ---- Dark tone ---- */
+.dark {
+  background:
+    radial-gradient(1200px 500px at 20% 0%,
+      color-mix(in oklab, var(--color-primary) 22%, transparent),
+      transparent 60%),
+    var(--color-bg-dark);
+  color: var(--color-text-invert);
+}
+.dark :where(h1, h2, h3) { color: var(--color-text-invert); }

@@ -1,0 +1,119 @@
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  padding: 24px 16px;
+  background: #170F1F;
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+@media (max-width: 1023px) {
+  .sidebar { display: none; }
+}
+
+/* --- Brand --- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px;
+}
+.logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #EC4899, #A855F7);
+  color: white;
+  font-weight: 800;
+  font-size: 20px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 20px -8px rgba(236, 72, 153, 0.6);
+}
+.brandText { display: flex; flex-direction: column; line-height: 1.15; }
+.brandName { font-weight: 700; font-size: 18px; color: white; }
+.brandSub { color: rgba(255, 255, 255, 0.55); font-size: 12px; }
+
+/* --- Nav --- */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 150ms ease;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+.navItem:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: white;
+}
+.navItemActive {
+  background: linear-gradient(90deg, #EC4899, #A855F7);
+  color: white;
+  box-shadow: 0 6px 16px -6px rgba(236, 72, 153, 0.5);
+}
+.navItemActive:hover {
+  background: linear-gradient(90deg, #EC4899, #A855F7);
+  color: white;
+}
+
+.navLabel { flex: 1; }
+.navBadge {
+  min-width: 22px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+}
+.navItemActive .navBadge { background: rgba(255, 255, 255, 0.28); }
+
+/* --- Footer --- */
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 12px;
+}
+.footerItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+}
+.footerItem:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.04);
+}

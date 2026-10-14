@@ -1,0 +1,67 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 480px;
+  margin: 0 auto;
+  color: var(--color-text);
+}
+
+.form { display: flex; flex-direction: column; gap: var(--space-4); }
+
+.typeTabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--color-primary-soft);
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+}
+.typeTab {
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-pill);
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  background: transparent;
+}
+.typeTabActive { background: var(--color-primary); color: white; }
+.typeTab:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+.input, .select {
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-family: inherit;
+  width: 100%;
+}
+.input:focus, .select:focus { outline: none; border-color: var(--color-primary); }
+.input::placeholder { color: var(--color-text-muted); }
+.select { appearance: none; padding-right: var(--space-8); }
+
+.error {
+  padding: var(--space-3);
+  background: #FDECEC;
+  color: var(--color-danger);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-md);
+}
+
+.submit {
+  padding: var(--space-4);
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+.submit:hover:not(:disabled) { background: var(--color-primary-dark); }

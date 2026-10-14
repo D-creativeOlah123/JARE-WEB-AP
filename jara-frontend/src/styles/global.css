@@ -1,0 +1,175 @@
+/* Global body/typography defaults, plus keyframes + utilities. */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: background var(--duration-med) var(--ease-out),
+              color     var(--duration-med) var(--ease-out);
+}
+
+/* Landing page headings use the italic-serif display font. */
+.font-display {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Accessible focus ring — visible only when navigating by keyboard. */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion — keyframes                                                 */
+/* ------------------------------------------------------------------ */
+@keyframes jara-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes jara-fade-slide {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes jara-scale-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes jara-shimmer {
+  from { background-position: -400px 0; }
+  to   { background-position:  400px 0; }
+}
+@keyframes jara-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes jara-pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.85); }
+}
+@keyframes jara-toast-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes jara-progress-sweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+
+/* ---------- Landing-only keyframes ---------- */
+@keyframes jara-ken-burns {
+  from { transform: scale(1)    translate3d(0, 0, 0); }
+  to   { transform: scale(1.06) translate3d(0, 0, 0); }
+}
+@keyframes jara-draw-line {
+  from { stroke-dashoffset: var(--jara-draw-length, 100%); }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes jara-coin-travel {
+  0%   { offset-distance: 0%;   opacity: 0; }
+  10%  {                        opacity: 1; }
+  90%  {                        opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion — reusable helpers                                          */
+/* ------------------------------------------------------------------ */
+.animate-fadeIn      { animation: jara-fade-in     var(--duration-med) var(--ease-out) both; }
+.animate-fadeSlide   { animation: jara-fade-slide  var(--duration-med) var(--ease-out) both; }
+.animate-scaleIn     { animation: jara-scale-in    var(--duration-med) var(--ease-spring) both; }
+.animate-delay-1     { animation-delay:  60ms; }
+.animate-delay-2     { animation-delay: 120ms; }
+.animate-delay-3     { animation-delay: 180ms; }
+.animate-delay-4     { animation-delay: 240ms; }
+
+/* Route wrapper — new pages fade+slide in. */
+.route-transition { animation: jara-fade-slide var(--duration-med) var(--ease-out) both; }
+
+/* ------------------------------------------------------------------ */
+/* Loading — skeleton + spinner                                        */
+/* ------------------------------------------------------------------ */
+.skeleton {
+  display: block;
+  min-height: 12px;
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-soft) 0%,
+    color-mix(in oklab, var(--color-primary-soft) 55%, white) 50%,
+    var(--color-primary-soft) 100%
+  );
+  background-size: 400px 100%;
+  animation: jara-shimmer 1.4s linear infinite;
+}
+:root[data-theme="dark"] .skeleton {
+  background: linear-gradient(
+    90deg,
+    #241537 0%,
+    #33204F 50%,
+    #241537 100%
+  );
+  background-size: 400px 100%;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in oklab, currentColor 30%, transparent);
+  border-top-color: currentColor;
+  animation: jara-spin 0.75s linear infinite;
+}
+
+/* Indeterminate progress bar (top of a card while loading). */
+.progressBar {
+  position: relative;
+  height: 2px;
+  background: color-mix(in oklab, var(--color-primary) 12%, transparent);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progressBar::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 30%;
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 2px;
+  animation: jara-progress-sweep 1.2s var(--ease-out) infinite;
+}
+
+/* ------------------------------------------------------------------ */
+/* Button hover/active lift — apply .btn to any button that should
+   feel tactile.                                                       */
+/* ------------------------------------------------------------------ */
+.btn-lift {
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+}
+.btn-lift:hover:not(:disabled)  { transform: translateY(-1px); }
+.btn-lift:active:not(:disabled) { transform: translateY(0)   scale(0.98); }
+
+/* Respect motion-reduced users. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

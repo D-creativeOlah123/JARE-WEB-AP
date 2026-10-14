@@ -1,0 +1,13 @@
+/* Landing composer-level styles. Each section owns its own module;
+   this file only paints the page wrapper. */
+
+.page {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  position: relative;
+  overflow-x: hidden;
+}
+:root[data-theme="dark"] .page {
+  background: var(--color-bg-dark);
+}

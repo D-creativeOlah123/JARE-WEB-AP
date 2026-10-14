@@ -1,0 +1,75 @@
+.wrap {
+  width: 100%;
+  padding: clamp(16px, 3vw, 32px);
+  border-radius: 24px;
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  --toast-delay: 0ms;
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: color-mix(in oklab, var(--color-success) 10%, var(--color-bg-elev));
+  border: 1px solid color-mix(in oklab, var(--color-success) 32%, var(--color-border));
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(-10px) scale(0.98);
+  animation:
+    jara-toast-in 300ms var(--ease-spring) forwards,
+    jara-haptic 420ms var(--ease-out) forwards;
+  animation-delay: var(--toast-delay), calc(var(--toast-delay) + 220ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast { animation: none; opacity: 1; transform: none; }
+}
+
+@keyframes jara-haptic {
+  0%   { transform: translateY(0) scale(1); }
+  40%  { transform: translateY(0) scale(1.03); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--color-success);
+  color: white;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.title {
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.detail {
+  color: var(--color-text-muted);
+  font-size: 11px;
+}
+
+.ok {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--color-success);
+  box-shadow: 0 0 10px color-mix(in oklab, var(--color-success) 60%, transparent);
+}

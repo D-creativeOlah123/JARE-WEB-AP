@@ -1,0 +1,127 @@
+.card {
+  position: relative;
+  padding: 20px 22px;
+  background:
+    radial-gradient(140% 100% at 100% 0%,
+      color-mix(in oklab, white 18%, transparent), transparent 55%),
+    var(--gradient-primary);
+  color: white;
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 24px 48px -16px rgba(26, 11, 46, 0.45);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Noise overlay */
+.noise {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.topRow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+}
+.eyeBtn {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.eyeBtn:hover { background: rgba(255, 255, 255, 0.22); }
+
+.balanceRow { position: relative; z-index: 1; }
+.amount {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  font-size: 32px;
+  color: white;
+}
+
+/* Account number row */
+.acctRow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4px;
+}
+.acctLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+.acctButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.acctButton:hover { background: rgba(255, 255, 255, 0.18); }
+.acctValue { letter-spacing: 0.04em; font-variant-numeric: tabular-nums; }
+
+/* Action pills */
+.actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+.actionBtn {
+  flex: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  min-height: 40px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.actionPrimary {
+  background: white;
+  color: var(--color-primary-dark);
+  box-shadow: 0 8px 16px -8px rgba(255, 255, 255, 0.5);
+}
+.actionSecondary {
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.actionSecondary:hover { background: rgba(255, 255, 255, 0.22); }

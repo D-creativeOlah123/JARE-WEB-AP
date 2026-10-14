@@ -1,0 +1,26 @@
+.row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.looking {
+  color: var(--color-text-muted);
+  background: var(--color-bg-subtle);
+}
+.found {
+  color: var(--color-success-ink);
+  background: var(--color-success-soft);
+}
+.error {
+  color: var(--color-danger-ink);
+  background: var(--color-danger-soft);
+}
+
+.spin {
+  animation: jara-spin 0.75s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) { .spin { animation: none; } }

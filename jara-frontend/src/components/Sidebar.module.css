@@ -1,0 +1,112 @@
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  padding: var(--space-6) var(--space-4);
+  background: var(--color-bg-dark);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+@media (max-width: 1023px) {
+  .sidebar { display: none; }
+}
+
+/* --- Brand --- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0 var(--space-2);
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: white;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+.brandText { display: flex; flex-direction: column; line-height: 1.15; }
+.brandName {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--color-text-invert);
+}
+.brandSub {
+  color: var(--color-text-invert-muted);
+  font-size: var(--text-xs);
+}
+
+/* --- Nav --- */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  color: var(--color-text-invert-muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: all var(--duration-fast) var(--ease-out);
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.navItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text-invert);
+}
+.navItemActive {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: 0 6px 16px -6px rgba(166, 58, 143, 0.5);
+}
+.navItemActive:hover {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+.navLabel { flex: 1; }
+.navBadge {
+  min-width: 22px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--color-text-invert);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-align: center;
+}
+.navItemActive .navBadge {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* --- Footer (Settings + Logout) --- */
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: var(--space-4);
+}
